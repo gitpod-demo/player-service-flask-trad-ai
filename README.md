@@ -19,9 +19,12 @@ Ensure you have the following installed:
 
 ```bash
 .
-├── app.py                   # Main Flask app
-├── ai_model.py              # Traditional AI model service (runs on port 5000)
-├── requirements.txt         # Python dependencies
+app
+├── app.py # Main Flask app runs on port 8000
+    requirements.txt         # Python dependencies
+model
+ ├── a4a_model
+      ├── server.py   # Traditional AI model service (runs on port 5000)
 └── README.md                # Documentation
 ```
 
