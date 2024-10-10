@@ -25,7 +25,7 @@ def get_player(player_id):
     else:
         return jsonify({'message': 'player not found'}), 404
 
-# Define a route for the POST method to match the curl call
+# POST call to traditional AI model
 @app.route('/team/generate', methods=['POST'])
 def generate_team():
     # Parse the JSON request data
@@ -49,7 +49,7 @@ def generate_team():
 
     # Print the response from the server
     if response.status_code == 200:
-        return jsonify(response)
+        return jsonify(response.text)
     else:
         jsonify({'message': 'model not found'}), 404
 
