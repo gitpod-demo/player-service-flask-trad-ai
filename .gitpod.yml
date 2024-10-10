@@ -1,0 +1,22 @@
+tasks:
+  - name: player-service-app
+    init: |
+      cd app
+      python3 -m venv venv
+      source venv/bin/activate
+      pip install -r requirements.txt
+    command: |
+      cd app
+      source venv/bin/activate
+  - name: a4a_model setup
+    before: |
+      cd model
+      docker build -t a4a_model .
+    init: docker run -d -p 5000:5000 a4a_model
+
+
+ports:
+  - port: 5000
+    onOpen: open-preview
+  - port: 8000
+    onOpen: open-preview
